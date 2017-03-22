@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Player.distroy_all
+Player.destroy_all
 
 Player.create! [
   { first_name: "Lauren", last_name: "Clerkin", gender: "female" },
