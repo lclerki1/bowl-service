@@ -1,0 +1,19 @@
+<h1>Enter Scores</h1>
+
+<%= form_tag do %> 
+  <p>Game 1: <%= number_field_tag :g1, 5, within: 0..300 %></p>
+  <p>Game 2: <%= number_field_tag :g2, 0, within: 0..300 %></p>
+  <p>Game 3: <%= number_field_tag :g3, 0, within: 0..300 %></p>
+<% end %>
+
+<p>Total Pins: 	<span id="p1"></span></p>
+
+<script type="text/javascript"> 
+  
+  $("form").on("change", function() {
+  	var total = "<%= Calculations.sum(@g1, @g2, @g3).to_i %>"
+  	var totals = 5 + 5 + 5
+	document.getElementById("p1").innerHTML = total;
+  }); 
+  
+</script>

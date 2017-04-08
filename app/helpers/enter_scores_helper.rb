@@ -1,0 +1,3 @@
+module EnterScoresHelper
+
+end
