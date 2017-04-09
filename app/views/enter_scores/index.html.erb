@@ -1,19 +1,36 @@
+<div>
 <h1>Enter Scores</h1>
 
-<%= form_tag do %> 
-  <p>Game 1: <%= number_field_tag :g1, 5, within: 0..300 %></p>
-  <p>Game 2: <%= number_field_tag :g2, 0, within: 0..300 %></p>
-  <p>Game 3: <%= number_field_tag :g3, 0, within: 0..300 %></p>
+<%= form_tag id="form" do %> 
+  <p>Game 1: <%= number_field_tag :g1, nil, within: 0..300, :class => "field" %></p>
+  <p>Game 2: <%= number_field_tag :g2, nil, within: 0..300, :class => "field" %></p>
+  <p>Game 3: <%= number_field_tag :g3, nil, within: 0..300, :class => "field" %></p>
 <% end %>
 
-<p>Total Pins: 	<span id="p1"></span></p>
+<p>Total Pins: <span id="tot"></span></p>
+<p>Average: <span id="avg"></span></p>
+</div>
 
 <script type="text/javascript"> 
-  
-  $("form").on("change", function() {
-  	var total = "<%= Calculations.sum(@g1, @g2, @g3).to_i %>"
-  	var totals = 5 + 5 + 5
-	document.getElementById("p1").innerHTML = total;
-  }); 
-  
+  $("form").on("keyup", function() {
+  	var games = [parseInt(document.getElementById("g1").value), 
+  				 parseInt(document.getElementById("g2").value), 
+  				 parseInt(document.getElementById("g3").value)]
+  	var sum = total(games)
+  	var avg = average(games)
+	document.getElementById("tot").innerHTML = sum;
+	document.getElementById("avg").innerHTML = avg;
+  });
+  function total(games) {
+  	var filtered = filterArr(games)
+  	return filtered.reduce(function(a, b) { return a + b; }, 0);
+  } 
+  function average(games) {
+  	var sum = total(games)
+  	var filtered = filterArr(games)
+  	return parseFloat(Math.round((sum / filtered.length) * 100) / 100).toFixed(2);
+  }
+  function filterArr(arr) {
+  	return arr.filter(Number);
+  }
 </script>
