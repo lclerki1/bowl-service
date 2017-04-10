@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Game Sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_sets.each do |game_set| %>
+      <tr>
+      	<td><%= game_set.games %></td>
+        <td><%= game_set.total %></td>
+        <td><%= game_set.average %></td>
+        <td><%= game_set.date %></td>
+        <td><%= game_set.person_id %></td>
+        <td><%= link_to 'Show', game_set %></td>
+        <td><%= link_to 'Edit', edit_game_set_path(game_set) %></td>
+        <td><%= link_to 'Destroy', game_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game set', new_game_set_path %>

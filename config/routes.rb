@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :game_sets
+  resources :people
   get 'high_game/compare'
 
   get 'high_set/compare'
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'enter_scores/index'
   get 'averages/compare'
+  get 'game_sets/index'
+  get 'people/index'
   resources :calculate
 
   root 'home#index'
