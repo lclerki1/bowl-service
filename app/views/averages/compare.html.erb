@@ -3,14 +3,16 @@
 
 <table border='1'>
 	<tr>
-		<th>Bowler</th>
+		<th>Bowler ID#</th>
+		<th>Bowler Name</th>
 		<th>Average</th>
 	</tr>
 	
-	<% @person.each do |person| %>
+	<% @people.each do |person| %>
     <tr class="<%= cycle('even', 'odd') %>">
+      <td><%= person["id"] %></td>
       <td><%= person["first_name"] %> <%= person["last_name"] %></td>
-      <td><%= person[] %></td>
+      <td><%= person.game_sets.to_a.first.average %></td>
 	</tr>
 	<% end %>
 </table>

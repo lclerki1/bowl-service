@@ -30,6 +30,18 @@ user1 = Person.first
 p user1
 p GameSet.first
 
+arr = Person.first.game_sets.to_a
+p arr.first.games
+
+user_avgs = []
+bowler = []
+Person.first.game_sets.each do |game|
+      user_avgs << game.average
+    end
+    avg = (Calculate.total(user_avgs) / user_avgs.length)
+    bowler << Person.first.first_name
+    bowler << avg
+p bowler
 
 
 

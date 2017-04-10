@@ -11,8 +11,7 @@ GameSet.destroy_all
 
 Person.create [
   {first_name: "Lauren", last_name: "Clerkin", gender: "W"},
-  {first_name: "Erin", last_name: "Hitt", gender: "W"},
-  {first_name: "Chuck", last_name: "Davis", gender: "M"}
+  {first_name: "Erin", last_name: "Hitt", gender: "W"}
 ]
 
 GameSet.create [
