@@ -1,25 +1,24 @@
-
-
-class AveragesController < ApplicationController
+class HighGameController < ApplicationController
   def compare
     @people = Person.all
     
     @bowlers = []
-    @user_avgs = []
+    @user_games = []
     @people.each do |person|
       @bowler = {}
       @bowler["id"] = person.id
       @bowler["first_name"] = person.first_name
       @bowler["last_name"] = person.last_name
       person.game_sets.each do |set|
-        @user_avgs << set.average
+        set.games.each do |game|
+          @user_games << game
+        end
       end
-      avg = (Calculate.total(@user_avgs) / @user_avgs.length)
-      @bowler["avg"] = avg
+      
+      @bowler["game"] = @user_games.max
       @bowlers << @bowler
     end
     
-    @sorted = @bowlers.sort_by { |k| k["avg"] }.reverse
+    @sorted = @bowlers.sort_by { |k| k["game"] }.reverse
   end
-
 end

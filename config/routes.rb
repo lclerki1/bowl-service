@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  get 'averages/compare'
+  get 'high_game/compare'
 
-  root 'enter_scores#index'
+  get 'high_set/compare'
+
+  get 'home/index'
+  get 'enter_scores/index'
+  get 'averages/compare'
+  resources :calculate
+
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

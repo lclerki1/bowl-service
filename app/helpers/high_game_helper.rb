@@ -1,0 +1,2 @@
+module HighGameHelper
+end

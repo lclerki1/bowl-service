@@ -1,0 +1,28 @@
+<div>
+<h1>Welcome to SPUR w/ Bowling</h1>
+
+<table>
+    <tr>
+      <td><%= button_to "Enter New Scores", 
+      		"http://localhost:3000/enter_scores/index", :method => "get", :class => "button" %></td>
+      <td>Enter new league scores</td>
+    </tr>
+    <tr>
+      <td><%= button_to "Compare Average", 
+      		"http://localhost:3000/averages/compare", :method => "get", :class => "button" %></td>
+      <td>Compare overall averages</td>
+    </tr>
+    <tr>
+      <td><%= button_to "Compare High Series", 
+      		"http://localhost:3000/high_set/compare", :method => "get", :class => "button" %></td>
+      <td>Compare user's highest set totals</td>
+    </tr>
+    <tr>
+      <td><%= button_to "Compare High Game", 
+      		"http://localhost:3000/high_game/compare", :method => "get", :class => "button" %></td>
+      <td>Compare user's highest games</td>
+	</tr>
+</table>
+
+</div>
+

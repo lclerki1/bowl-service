@@ -1,18 +1,18 @@
 <div>
-<h1>Compare Averages</h1>
+<h1>Compare High Set</h1>
 
 <table border='1'>
 	<tr>
 		<th>Bowler ID#</th>
 		<th>Bowler Name</th>
-		<th>Average</th>
+		<th>Set</th>
 	</tr>
 	
 	<% @sorted.each do |person| %>
     <tr class="<%= cycle('even', 'odd') %>">
       <td><%= person["id"] %></td>
       <td><%= person["first_name"] %> <%= person["last_name"] %></td>
-      <td><%= person["avg"] %></td>
+      <td><%= person["total"] %></td>
 	</tr>
 	<% end %>
 </table>
