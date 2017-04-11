@@ -73,6 +73,6 @@ class GameSetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_set_params
       #params.fetch(:game_set, {})
-      params.require(:game_set).permit(:person_id, :games => [])
+      params.require(:game_set).permit(:person_id, :date, :games => [])
     end
 end

@@ -10,6 +10,26 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @person = Person.find(params[:id])
+    
+    #Get individual game averages
+    @games1 = []
+    @games2 = []
+    @games3 = []
+    @total = []
+    @person.game_sets.each do |game_set|
+      @games1 << game_set.games[0]
+      @games2 << game_set.games[1]
+      @games3 << game_set.games[2]
+      @total << game_set.total
+      
+    end
+    @game1_avg = Calculate.avg(@games1)
+    @game2_avg = Calculate.avg(@games2)
+    @game3_avg = Calculate.avg(@games3)
+    
+    #Get total pins of all time
+    @total_pins = Calculate.total(@total)
   end
 
   # GET /people/new

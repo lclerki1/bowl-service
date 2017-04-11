@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    Date<br>
+    <%= f.date_field :date, :id=>"datepicker" %>
+  </div>
+  <div class="field">
     Game 1<br>
     <%= f.number_field :games, :id=>"g1", multiple: true %>
   </div>
@@ -33,3 +37,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+  <style type="text/css">
+.ui-datepicker {
+    background: #333;
+    border: 1px solid #555;
+    color: #EEE;
+}
+</style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
