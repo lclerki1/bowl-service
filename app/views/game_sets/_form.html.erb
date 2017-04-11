@@ -11,6 +11,24 @@
     </div>
   <% end %>
 
+  <div class="field">
+    Game 1<br>
+    <%= f.number_field :games, :id=>"g1", multiple: true %>
+  </div>
+  <div class="field">
+    Game 2<br>
+    <%= f.number_field :games, :id=>"g2", multiple: true %>
+  </div>
+  <div class="field">
+    Game 3<br>
+    <%= f.number_field :games, :id=>"g3", multiple: true %>
+  </div>
+  
+  <div class="field">
+  	Select Bowler<br>
+  <%= f.collection_select :person_id, @people, :id, :full_name, include_blank: false %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

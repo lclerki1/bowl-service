@@ -10,5 +10,4 @@ class GameSet < ActiveRecord::Base
     self.total = Calculate.total(self.games) unless destroyed?
     self.average = Calculate.avg(self.games) unless destroyed?
   end
-
 end

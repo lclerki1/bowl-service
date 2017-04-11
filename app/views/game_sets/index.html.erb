@@ -1,3 +1,4 @@
+<div class="centerBox">
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Game Sets</h1>
@@ -17,6 +18,7 @@
         <td><%= game_set.average %></td>
         <td><%= game_set.date %></td>
         <td><%= game_set.person_id %></td>
+        <td><%= Person.find(game_set.person_id).full_name if game_set.person_id %></td>
         <td><%= link_to 'Show', game_set %></td>
         <td><%= link_to 'Edit', edit_game_set_path(game_set) %></td>
         <td><%= link_to 'Destroy', game_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,3 +30,4 @@
 <br>
 
 <%= link_to 'New Game set', new_game_set_path %>
+</div>

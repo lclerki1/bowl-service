@@ -5,6 +5,7 @@ class GameSetsController < ApplicationController
   # GET /game_sets.json
   def index
     @game_sets = GameSet.all
+    @people = Person.all
   end
 
   # GET /game_sets/1
@@ -15,10 +16,12 @@ class GameSetsController < ApplicationController
   # GET /game_sets/new
   def new
     @game_set = GameSet.new
+    @people = Person.all
   end
 
   # GET /game_sets/1/edit
   def edit
+    @people = Person.all
   end
 
   # POST /game_sets
@@ -69,6 +72,7 @@ class GameSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_set_params
-      params.fetch(:game_set, {})
+      #params.fetch(:game_set, {})
+      params.require(:game_set).permit(:person_id, :games => [])
     end
 end

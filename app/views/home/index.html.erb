@@ -1,10 +1,15 @@
-<div>
+<div class="centerBox">
 <h1>Welcome to SPUR w/ Bowling</h1>
 
 <table>
     <tr>
+      <td><%= button_to "User List", 
+      		"http://localhost:3000/people", :method => "get", :class => "button" %></td>
+      <td>Find users, modify, and add users</td>
+    </tr>
+    <tr>
       <td><%= button_to "Enter New Scores", 
-      		"http://localhost:3000/enter_scores/index", :method => "get", :class => "button" %></td>
+      		"http://localhost:3000/game_sets/new", :method => "get", :class => "button" %></td>
       <td>Enter new league scores</td>
     </tr>
     <tr>
