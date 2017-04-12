@@ -3,15 +3,15 @@
 Spur w/ Bowling
 a thing that prompts or encourages someone; an incentive.
 
-*Features
-Create a user account
-Enter your own league scores (3 game set league style)
-View your set totals and averages overtime
-Compare your high games, totals, and average with people from other leagues
+Features
+* Create a user account
+* Enter your own league scores (3 game set league style)
+* View your set totals and averages overtime
+* Compare your high games, totals, and average with people from other leagues
 
-* Developed with the following versions
-Ruby 2.3.3
-Rails 4.2.8
-PostgreSQL 9.5.6
+Developed with the following versions
+* Ruby 2.3.3
+* Rails 4.2.8
+* PostgreSQL 9.5.6
 
-* Test suite is located in sandbox folder
+Test suite is located in sandbox folder
