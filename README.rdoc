@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Spur w/ Bowling
+a thing that prompts or encourages someone; an incentive.
 
-Things you may want to cover:
+*Features
+Create a user account
+Enter your own league scores (3 game set league style)
+View your set totals and averages overtime
+Compare your high games, totals, and average with people from other leagues
 
-* Ruby version
+* Developed with the following versions
+Ruby 2.3.3
+Rails 4.2.8
+PostgreSQL 9.5.6
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Test suite is located in sandbox folder
