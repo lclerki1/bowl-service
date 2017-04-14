@@ -30,7 +30,7 @@
       <th>Overall Average</th>
     </tr>
     <% @overall_avg = [] %>
-    <% @person.game_sets.each do |game_set| %>
+    <% @sorted.each do |game_set| %>
     <tr>
     	<td><%= game_set.date %></td>
     	<td><%= game_set.games[0] %></td>
@@ -45,9 +45,7 @@
 </table>
 
 <p>Average By Game</p>
-<p>Game 1: <%= @game1_avg %></p>
-<p>Game 2: <%= @game2_avg %></p>
-<p>Game 3: <%= @game3_avg %></p>
+<p>Game 1: <%= @game1_avg %> | Game 2: <%= @game2_avg %> | Game 3: <%= @game3_avg %></p>
 
 <p>Total Pins: <%= @total_pins %></p>
 <p>Overall Average: <%= Calculate.avg(@overall_avg) %></p>

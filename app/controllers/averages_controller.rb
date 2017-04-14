@@ -14,7 +14,7 @@ class AveragesController < ApplicationController
       person.game_sets.each do |set|
         @user_avgs << set.average
       end
-      avg = (Calculate.total(@user_avgs) / @user_avgs.length)
+      avg = (Calculate.avg(@user_avgs))
       @bowler["avg"] = avg
       @bowlers << @bowler
     end

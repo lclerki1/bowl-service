@@ -10,15 +10,81 @@ Person.destroy_all
 GameSet.destroy_all
 
 Person.create [
-  {first_name: "Lauren", last_name: "Clerkin", gender: "W"},
-  {first_name: "Erin", last_name: "Hitt", gender: "W"}
+  {id: 1, first_name: "Lauren", last_name: "Clerkin", gender: "W"},
+  {id: 2, first_name: "Erin", last_name: "Hitt", gender: "W"},
+  {id: 3, first_name: "James", last_name: "Clerkin", gender: "M"},
+  {id: 4, first_name: "Mike", last_name: "Hitt", gender: "M"},
+  {id: 5, first_name: "Chuck", last_name: "David", gender: "M"},
+  {id: 6, first_name: "Susan", last_name: "Hoffmaster", gender: "W"},
+  {id: 7, first_name: "Shawn", last_name: "Polk", gender: "M"}
 ]
 
-GameSet.create [
-  {games: [175, 150, 180], date: DateTime.new(2017, 4, 6)},
-  {games: [200, 190, 199], date: DateTime.new(2017, 4, 6)},
-  {games: [200, 210, 195], date: DateTime.new(2017, 4, 6)}
+Person.find(1).game_sets.create [
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 4, 13)}
 ]
 
-Person.first.game_sets << GameSet.first
-Person.last.game_sets << GameSet.last
+Person.find(2).game_sets.create [
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 4, 13)}
+]
+
+Person.find(3).game_sets.create [
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 4, 13)}
+]
+
+Person.find(4).game_sets.create [
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(100..160), rand(100..160), rand(100..160)], date: DateTime.new(2017, 4, 13)}
+]
+
+Person.find(5).game_sets.create [
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(180..250), rand(180..250), rand(180..250)], date: DateTime.new(2017, 4, 13)}
+]
+
+Person.find(6).game_sets.create [
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(90..130), rand(90..130), rand(90..130)], date: DateTime.new(2017, 4, 13)}
+]
+
+Person.find(7).game_sets.create [
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 2)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 9)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 16)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 23)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 3, 30)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 4, 6)},
+  {games: [rand(150..200), rand(150..200), rand(150..200)], date: DateTime.new(2017, 4, 13)}
+]

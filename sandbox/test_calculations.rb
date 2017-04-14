@@ -25,6 +25,12 @@ p ""
 
 # Note that rake seed.db should have been run already
 
+# Test seed filling
+lauren = Person.find(1)
+p lauren.game_sets
+p ''
+
+# Testing calculations with tables
 p "Test with database"
 user1 = Person.first
 p user1

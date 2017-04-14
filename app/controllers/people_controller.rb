@@ -11,6 +11,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
+    @sorted = @person.game_sets.sort_by { "date" }
     
     #Get individual game averages
     @games1 = []
