@@ -16,9 +16,6 @@
   <%= @person.gender %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
-
 <table border="1">
 	<tr>
       <th>Date</th>
@@ -50,5 +47,7 @@
 <p>Total Pins: <%= @total_pins %></p>
 <p>Overall Average: <%= Calculate.avg(@overall_avg) %></p>
 
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
 
 </div>
