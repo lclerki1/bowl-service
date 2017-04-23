@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {background: #f0f0f5;
+      height: 100%;
+      opacity: .95;
+     }
+
+div.centerfold {background: #7575a3;
+             margin: auto;
+    		 width: 90%;    
+   			 padding: 10px;
+    		}
+
+div.titleBox {
+  background-image: url(/assets/EnterScores_background.jpeg);
+  background-size: cover;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 250px;
+  width: 100%;
+}
+
+div.title {position: absolute;
+  float: left;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+   color: white; 
+   font: bold 24px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 8px; 
+    display: inline-block;
+}
+
+div.homeBar {position: absolute;
+  float: right;
+  bottom: 1%;
+  right: 0;
+   color: white; 
+   font: bold 14px/35px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 4px;
+    display: inline-block; 
+}
+
+.link {color: white;
+	font: bold 14px/15px Helvetica, Sans-Serif;
+	}
+	
+

@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
     
     #Get total pins of all time
     @total_pins = Calculate.total(@total)
-  end
+  end      
 
   # GET /people/new
   def new

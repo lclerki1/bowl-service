@@ -17,15 +17,15 @@
   </div>
   <div class="field">
     Game 1<br>
-    <%= f.number_field :games, :id=>"g1", multiple: true %>
+    <%= f.number_field :games, :id=>"g1", within: 0..300, multiple: true %>
   </div>
   <div class="field">
     Game 2<br>
-    <%= f.number_field :games, :id=>"g2", multiple: true %>
+    <%= f.number_field :games, :id=>"g2", within: 0..300, multiple: true %>
   </div>
   <div class="field">
     Game 3<br>
-    <%= f.number_field :games, :id=>"g3", multiple: true %>
+    <%= f.number_field :games, :id=>"g3", within: 0..300, multiple: true %>
   </div>
   
   <div class="field">

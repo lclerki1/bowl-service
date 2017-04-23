@@ -31,7 +31,7 @@ class GameSetsController < ApplicationController
 
     respond_to do |format|
       if @game_set.save
-        format.html { redirect_to @game_set, notice: 'Game set was successfully created.' }
+        format.html { redirect_to new_game_set_url, notice: 'Game set was successfully created.' }
         format.json { render :show, status: :created, location: @game_set }
       else
         format.html { render :new }
