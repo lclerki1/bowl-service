@@ -1,7 +1,8 @@
 == README
+Note that this is a project for a class. 
 
 Spur w/ Bowling
-a thing that prompts or encourages someone; an incentive.
+"a thing that prompts or encourages someone; an incentive."
 
 Features
 * Create a user account
