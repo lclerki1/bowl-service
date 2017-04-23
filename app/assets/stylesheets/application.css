@@ -66,4 +66,10 @@ div.homeBar {position: absolute;
 	font: bold 14px/15px Helvetica, Sans-Serif;
 	}
 	
+.week {
+	display: block;
+}
 
+.season {
+	display: none;
+}

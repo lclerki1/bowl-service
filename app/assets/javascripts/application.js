@@ -15,11 +15,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-	$('#userListID').click( function () {
-		$('.userListClass').show();
-		$('.homeContent').hide();
-		$('.enterScoresClass').hide();
-		return false;
-	});
-});
+	

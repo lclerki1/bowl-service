@@ -1,15 +1,21 @@
 <h1>Compare Averages</h1>
 
-<%= form_for(@game_set) do |f| %>
+
 <p>Select a timeframe to compare:</p>
   <p>Week will compare over one week (Monday-Saturday)</p>
   <p>Season will compare over the selected season</p>
-  <%= f.select :timeframe, options_for_select([ "Week", "Season" ], selected: "Week") %>
-<% end %> 
+  <%= select_tag :timeframe, options_for_select([ "Week", "Season" ], selected: "Week"),
+      :onchange => "compareFunc(this.options[this.selectedIndex].value); return false;" %>
 
-<p>This: <span id="this"></span></p>
-<%= render 'season' if @timeframe == "Season"%>
 
+<div class="week">
+<%= render 'week' %>
+</div>
+
+<div class="season">
+<%= render 'season' %>
+</div>
+<br>
 <table border='1'>
 	<tr>
 		<th>Bowler ID#</th>
@@ -29,8 +35,14 @@
 </div>
 
 <script type="text/javascript"> 
-  $("form").on("keyup", function() {
-  	var time = document.getElementById("timeframe").value
-	document.getElementById("this").innerHTML = time;
-  });
+  function compareFunc(x) {
+		if (x == "Week") {
+			$('.week').show();
+			$('.season').hide();
+		}
+		else if (x == "Season") {
+			$('.season').show();
+			$('.week').hide();
+		}
+	};
 </script>
