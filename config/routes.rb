@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  
+  resources :people 
   resources :game_sets
-  resources :people
+  
   resources :calculate
+  
   get 'high_game/compare'
 
   get 'high_set/compare'

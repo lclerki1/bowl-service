@@ -1,20 +1,33 @@
-<div>
 <h1>Compare High Game</h1>
 
-<table border='1'>
-	<tr>
-		<th>Bowler ID#</th>
-		<th>Bowler Name</th>
-		<th>Game</th>
-	</tr>
-	
-	<% @sorted.each do |person| %>
-    <tr class="<%= cycle('even', 'odd') %>">
-      <td><%= person["id"] %></td>
-      <td><%= person["first_name"] %> <%= person["last_name"] %></td>
-      <td><%= person["game"] %></td>
-	</tr>
-	<% end %>
-</table>
+<p>Select a timeframe to compare:</p>
+  <p>Week will compare over one week (Sunday-Saturday)</p>
+  <p>Season will compare over the selected season</p>
+  <%= select_tag :timeframe, options_for_select([ "Week", "Season" ], selected: "Week"),
+      :onchange => "compareFunc(this.options[this.selectedIndex].value); return false;" %>
+
+
+<div class="week">
+<%= render 'week' %>
+</div>
+
+<div class="season">
+<%= render 'season' %>
+</div>
+<br>
+
 
 </div>
+
+<script type="text/javascript"> 
+  function compareFunc(x) {
+		if (x == "Week") {
+			$('.week').show();
+			$('.season').hide();
+		}
+		else if (x == "Season") {
+			$('.season').show();
+			$('.week').hide();
+		}
+	};
+</script>

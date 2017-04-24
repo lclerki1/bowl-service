@@ -2,7 +2,7 @@
 	<p>These averages are the set averages for the eacg night of bowling in the week selected.</p>
 </div>
 
-<%= form_tag averages_compare_path, :method => 'get' do %>
+<%= form_tag high_game_compare_path, :method => 'get' do %>
 <p>Date: <%= date_field_tag :date, params[:date] %>    
 <%= submit_tag "Filter", :name => nil %></p>
 <% end %>
@@ -11,7 +11,7 @@
 	<tr>
 		<th>Bowler ID#</th>
 		<th>Bowler Name</th>
-		<th>Average</th>
+		<th>Score</th>
 		<th>Day of Week</th>
 		<th>Date</th>
 	</tr>
@@ -20,7 +20,7 @@
     <tr class="<%= cycle('even', 'odd') %>">
       <td><%= person["id"] %></td>
       <td><%= person["first_name"] %> <%= person["last_name"] %></td>
-      <td><%= person["avg"] %></td>
+      <td><%= person["game"] %></td>
       <td><%= person["day"] %></td>
       <td><%= person["date"] %></td>
 	</tr>

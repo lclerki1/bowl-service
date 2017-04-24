@@ -1,8 +1,7 @@
 <h1>Compare Averages</h1>
 
-
 <p>Select a timeframe to compare:</p>
-  <p>Week will compare over one week (Monday-Saturday)</p>
+  <p>Week will compare over one week (Sunday-Saturday)</p>
   <p>Season will compare over the selected season</p>
   <%= select_tag :timeframe, options_for_select([ "Week", "Season" ], selected: "Week"),
       :onchange => "compareFunc(this.options[this.selectedIndex].value); return false;" %>
@@ -16,21 +15,7 @@
 <%= render 'season' %>
 </div>
 <br>
-<table border='1'>
-	<tr>
-		<th>Bowler ID#</th>
-		<th>Bowler Name</th>
-		<th>Average</th>
-	</tr>
-	
-	<% @sorted.each do |person| %>
-    <tr class="<%= cycle('even', 'odd') %>">
-      <td><%= person["id"] %></td>
-      <td><%= person["first_name"] %> <%= person["last_name"] %></td>
-      <td><%= person["avg"] %></td>
-	</tr>
-	<% end %>
-</table>
+
 
 </div>
 

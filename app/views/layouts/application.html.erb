@@ -24,9 +24,13 @@
 <div class="actionBar">
 	<%= link_to "User List", people_path, :method => "get" %>
 	|
-	<%= link_to "Enter New Scores", new_game_set_path, :method => "get" %>
+	<%= link_to "Enter New Scores", new_game_set_path(:person_id), :method => "get" %>
 	|
 	<%= link_to "Compare Averages", averages_compare_path, :method => "get" %>
+	|
+	<%= link_to "Compare High Scores", high_game_compare_path, :method => "get" %>
+	|
+	<%= link_to "Compare High Sets", high_set_compare_path, :method => "get" %>
 </div>
 
 <p id="notice"><%= notice %></p>

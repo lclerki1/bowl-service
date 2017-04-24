@@ -1,42 +1,31 @@
-
-
 class AveragesController < ApplicationController
+  
   def compare
     @people = Person.all
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
     
-    
+    @time = [@date.beginning_of_week(:sunday), @date.end_of_week(:saturday)]
     @bowlers = []
-    @user_avgs = []
     @people.each do |person|
-      @bowler = {}
-      @bowler["id"] = person.id
-      @bowler["first_name"] = person.first_name
-      @bowler["last_name"] = person.last_name
-      person.game_sets.each do |set|
-        @user_avgs << set.average
+      
+      @time_games = person.game_sets.where(date: (@time[0]..@time[1]))
+      @time_games.each do |g|
+        @bowler = {}
+        @bowler["id"] = person.id
+        @bowler["first_name"] = person.first_name
+        @bowler["last_name"] = person.last_name
+        @bowler["avg"] = g.average
+        @bowler["date"] = g.date
+        @bowler["day"] = Date::DAYNAMES[g.date.wday]
+        @bowlers << @bowler
       end
-      
-      time_avg(person, params[:date])
-      
-      avg = (Calculate.avg(@user_avgs))
-      @bowler["avg"] = avg
-      @bowlers << @bowler
     end
     
     @sorted = @bowlers.sort_by { |k| k["avg"] }.reverse    
   end
-
-  def time_avg(bowler, date)
-    #records = Campaign.where(:created_at => start_date..end_date)
-    #timeframe = stats_weekly(date)
-    #time_games = person.game_sets.where(:date => timeframe[0]..timeframe[1])
-    #return time_games
-  end
-
-  def stats_weekly(date)
-    #today.beginning_of_week(:sunday)
-    #startof = date.beginning_of_week(:sunday)
-    #endof = date.end_of_week(:saturday)
-    #return [startof, endof]
-  end
+  
 end
