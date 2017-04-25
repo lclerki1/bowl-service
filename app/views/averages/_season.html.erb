@@ -1,3 +1,30 @@
 <div>
-	<p>Not currently available</p>
+	<p>These averages are the highest set averages for the timeframe selected.</p>
 </div>
+
+<%= form_tag averages_compare_path, :method => 'get' do %>
+<p>Year: <%= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year - 5, :field_name => 'year') %></p>
+<p>Start Month: <%= select_month(Date.today, use_short_month: true, :field_name => 'sMonth') %></p>
+<p>End Month: <%= select_month(Date.today, use_short_month: true, :field_name => 'eMonth') %></p>
+<%= submit_tag "Filter", :name => nil %>
+<% end %>
+
+<table border='1'>
+	<tr>
+		<th>Bowler ID#</th>
+		<th>Bowler Name</th>
+		<th>Average</th>
+		<th>Day of Week</th>
+		<th>Date</th>
+	</tr>
+	
+	<% @sorted.each do |person| %>
+    <tr class="<%= cycle('even', 'odd') %>">
+      <td><%= person["id"] %></td>
+      <td><%= person["first_name"] %> <%= person["last_name"] %></td>
+      <td><%= person["avg"] %></td>
+      <td><%= person["day"] %></td>
+      <td><%= person["date"] %></td>
+	</tr>
+	<% end %>
+</table>

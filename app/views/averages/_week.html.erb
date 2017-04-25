@@ -1,9 +1,9 @@
 <div>
-	<p>These averages are the set averages for the eacg night of bowling in the week selected.</p>
+	<p>These averages are the set averages for the each night of bowling in the week selected.</p>
 </div>
 
 <%= form_tag averages_compare_path, :method => 'get' do %>
-<p>Date: <%= date_field_tag :date, params[:date] %>    
+<p>Date: <%= date_field_tag :week, params[:week] %>    
 <%= submit_tag "Filter", :name => nil %></p>
 <% end %>
 
@@ -39,6 +39,6 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#date" ).datepicker({dateFormat: "yy-mm-dd"});
+    $( "#week" ).datepicker({dateFormat: "yy-mm-dd"});
   } );
   </script>
