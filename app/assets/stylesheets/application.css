@@ -73,3 +73,11 @@ div.homeBar {position: absolute;
 .season {
 	display: none;
 }
+
+.table_stats {
+	display: block;
+}
+
+.graph_stats {
+	display: none;
+}
