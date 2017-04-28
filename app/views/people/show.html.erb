@@ -16,6 +16,11 @@
   <%= @person.gender %>
 </p>
 
+<p>Display Stats in table or graphically? 
+<%= select_tag :viz, options_for_select([ "Table", "Graph" ], selected: "Table"),
+      :onchange => "compareFunc(this.options[this.selectedIndex].value); return false;" %>
+</p>
+
 <div class="table_stats">
 <%= render 'table_stats' %>
 </div>
@@ -27,3 +32,15 @@
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
 
+<script type="text/javascript"> 
+  function compareFunc(x) {
+		if (x == "Table") {
+			$('.table_stats').show();
+			$('.graph_stats').hide();
+		}
+		else if (x == "Graph") {
+			$('.graph_stats').show();
+			$('.table_stats').hide();
+		}
+	};
+</script>

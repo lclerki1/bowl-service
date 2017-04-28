@@ -1,0 +1,50 @@
+<svg id="graph"></svg>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+$.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: 'person_url',
+            data: {}
+            dataType: 'json',
+            success: function (data) {
+               draw(data);
+           },
+           error: function (result) {
+               error();
+           }
+    });
+function draw(data) {
+   var canvas = d3.select("#graph").append("svg")
+        .attr("width", 500)
+        .attr("height", 500)
+        .attr("border", "black")
+
+   var group = canvas.append("g")
+        .attr("transform", "translate(100,10)")
+
+   var line = d3.svg.line()
+        .x(function(d, i) {
+            return d.dates;
+        })
+        .y(function(d, i) {
+            return d.avgs;
+        }); 
+
+   group.selectAll("path")
+        .data(data).enter()
+        .append("path")
+        .attr("d", function(d){ return line(d) })
+        .attr("fill", "none")
+        .attr("stroke", "green")
+        .attr("stroke-width", 3);
+    
+}
+ 
+function error() {
+    console.log("error")
+}
+
+</script>
+	

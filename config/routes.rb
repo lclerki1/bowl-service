@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'averages/compare'
   get 'game_sets/index'
   get 'people/index'
-  
+  get 'people/get_data', :defaults => { :format => 'json' }
 
   root 'home#index'
 

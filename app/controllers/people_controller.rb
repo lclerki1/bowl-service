@@ -33,6 +33,26 @@ class PeopleController < ApplicationController
     @total_pins = Calculate.total(@total)
   end      
 
+  def get_data
+    @person = Person.find(params[:id])
+    @sorted = @person.game_sets.sort_by &:date
+    
+    @dates = []
+    @avgs = []
+    @totals = []
+    @sorted.each do |set|
+      @dates << set.date
+      @avgs << set.average
+      @totals << set.total
+    end
+    
+    respond_to do |format|
+      format.json { render :json => { :dates => @dates,
+                                      :avgs => @avgs,
+                                      :totals => @totals } }
+    end
+  end
+
   # GET /people/new
   def new
     @person = Person.new
