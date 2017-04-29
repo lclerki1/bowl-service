@@ -31,6 +31,16 @@ class PeopleController < ApplicationController
     
     #Get total pins of all time
     @total_pins = Calculate.total(@total)
+    
+    @dates = []
+    @avgs = []
+    @totals = []
+    @sorted.each do |set|
+      @dates << set.date
+      @avgs << set.average
+      @totals << set.total
+    end
+    
   end      
 
   def get_data

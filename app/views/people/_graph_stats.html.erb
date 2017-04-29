@@ -1,50 +1,90 @@
-<svg id="graph"></svg>
+
+<style>
+	line {
+  		stroke: black;
+	}
+
+	path {
+    	fill: none;
+    	stroke: green;
+	}
+
+</style>
+
+<svg style="background-color: white"></svg>
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
-$.ajax({
-            type: "GET",
-            contentType: "application/json; charset=utf-8",
-            url: 'person_url',
-            data: {}
-            dataType: 'json',
-            success: function (data) {
-               draw(data);
-           },
-           error: function (result) {
-               error();
-           }
-    });
-function draw(data) {
-   var canvas = d3.select("#graph").append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
-        .attr("border", "black")
+	var dates = <%= @dates %>, 
+		avgs = <%= @avgs %>,
+		totals = <%= @totals %>
+	
+	var data = dates.map(function(d, i){
+ 		return { 'date' : d, 'average' : avgs[i], 'total' : totals[i] };
+	};
+	
+	var parseTime = d3.timeParse("%Y-%m-%d");
 
-   var group = canvas.append("g")
-        .attr("transform", "translate(100,10)")
+    var w = 450,
+    h = 275,
+    p = 30,
+    y = d3.scale.linear().domain([0, 300]).range([h, 0]),
+    x = d3.time.scale().domain(d3.extent(data, function(d) { return d.date; })).range([0, w]);
 
-   var line = d3.svg.line()
-        .x(function(d, i) {
-            return d.dates;
-        })
-        .y(function(d, i) {
-            return d.avgs;
-        }); 
+    var vis = d3.select("body")
+    .append("svg")
+    .attr("width", w + p * 2)
+    .attr("height", h + p * 2)
+    .append("g")
+    .attr("transform", "translate(" + p + "," + p + ")");
 
-   group.selectAll("path")
-        .data(data).enter()
-        .append("path")
-        .attr("d", function(d){ return line(d) })
-        .attr("fill", "none")
-        .attr("stroke", "green")
-        .attr("stroke-width", 3);
+    var rules = vis.selectAll("g.rule")
+    .data(x.ticks(5))
+    .enter().append("g")
+    .attr("class", "rule");
+
+    rules.append("line")
+    .attr("x1", x)
+    .attr("x2", x)
+    .attr("y1", 0)
+    .attr("y2", h - 1);
+
+    rules.append("line")
+    .attr("class", function(d) { return d.average ? null : "axis"; })
+    .attr("y1", y)
+    .attr("y2", y)
+    .attr("x1", 0)
+    .attr("x2", w + 1);
+
+    rules.append("text")
+    .attr("x", x)
+    .attr("y", h + 3)
+    .attr("dy", ".71em")
+    .attr("text-anchor", "middle")
+    .text(x.tickFormat(10));
+
+    rules.append("text")
+    .attr("y", y)
+    .attr("x", -3)
+    .attr("dy", ".35em")
+    .attr("text-anchor", "end")
+    .text(y.tickFormat(10));
+
+    vis.append("path")
+    .data([data])
+    .attr("class", "line")
+    .attr("d", d3.svg.line()
+        .x(function(d) { return x(parseTime(d.date)) })
+        .y(function(d) { return y(d.average) })
+    );
+
+    vis.selectAll("circle.line")
+    .data(data)
+    .enter().append("circle")
+    .attr("class", "line")
+    .attr("cx", function(d) { return x(parseTime(d.date)) })
+    .attr("cy", function(d) { return y(d.average); })
+    .attr("r", 3.5);
     
-}
- 
-function error() {
-    console.log("error")
-}
-
 </script>
 	
